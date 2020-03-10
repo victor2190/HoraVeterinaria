@@ -13,7 +13,7 @@ public class Cita {
     private String hora;
     private String estado;
 
-    public Cita(String nombre, String especie, int edad, float peso, String dueño, String telefono, String fecha, String hora, String estado) {
+    public Cita(String nombre, String especie, int edad, float peso, String dueño, String telefono, String fecha, String hora) {
         this.nombre = nombre;
         this.especie = especie;
         this.edad = edad;
@@ -22,7 +22,7 @@ public class Cita {
         this.telefono = telefono;
         this.fecha = fecha;
         this.hora = hora;
-        this.estado = estado;
+        this.estado = "Agendado";
     }
 
     public Cita(int id, String nombre, String especie, int edad, float peso, String dueño, String telefono, String fecha, String hora, String estado) {
