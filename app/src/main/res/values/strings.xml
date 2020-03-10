@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HoraVeterinaria</string>
+    <string-array name="especies">
+        <item>Gato</item>
+        <item>Perro</item>
+    </string-array>
+    <string-array name="hra">
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+    </string-array>
+    <string-array name="min">
+        <item>00</item>
+        <item>30</item>
+    </string-array>
+</resources>
