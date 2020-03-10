@@ -8,8 +8,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.horaveterinaria.Modelo.AgendaDatabaseHelper;
+import com.example.horaveterinaria.Modelo.Cita;
+
 public class NuevaCita extends AppCompatActivity {
 
+    private AgendaDatabaseHelper helper=new AgendaDatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +24,7 @@ public class NuevaCita extends AppCompatActivity {
         String rNombre=((TextView) findViewById(R.id.nombre)).getText().toString();
         String rEspecie=((Spinner) findViewById(R.id.especie)).getSelectedItem().toString();
         String rEdad=((TextView) findViewById(R.id.edad)).getText().toString();
-        int edad;
+        int edad=0;
         try
         {
             edad=Integer.parseInt(rEdad);
@@ -32,7 +36,7 @@ public class NuevaCita extends AppCompatActivity {
         }
 
         String rPeso=((TextView) findViewById(R.id.peso)).getText().toString();
-        float peso;
+        float peso=0;
         try
         {
             peso=Float.parseFloat(rPeso);
@@ -51,7 +55,20 @@ public class NuevaCita extends AppCompatActivity {
         String rMinutos=((Spinner) findViewById(R.id.min)).getSelectedItem().toString();
         String hora=rHora+":"+rMinutos;
 
-
+        if(edad<0)
+        {
+            Toast.makeText(this, "Edad debe ser mayor a cero", Toast.LENGTH_SHORT).show();
+        }
+        else if(peso<0)
+        {
+            Toast.makeText(this, "Peso debe ser mayor a 0", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Cita cita=new Cita(rNombre,rEspecie,edad,peso,rDueño,rTelefono,rFecha,hora);
+            helper.ingresarCita(cita);
+            finish();
+        }
 
 
     }
