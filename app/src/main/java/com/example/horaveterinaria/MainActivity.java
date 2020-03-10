@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.horaveterinaria.Modelo.AgendaDatabaseHelper;
+import com.example.horaveterinaria.Modelo.Cita;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,5 +32,19 @@ public class MainActivity extends AppCompatActivity {
     {
         String msg=helper.eliminarCaducados();
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    public void verAgenda(View view)
+    {
+        try
+        {
+            ArrayList<Cita> citas=(ArrayList<Cita>) helper.listaCitas();
+            Intent intent=new Intent(this,AgendaActivity.class);
+            startActivity(intent);
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(this, "Agenda vacia", Toast.LENGTH_SHORT).show();
+        }
     }
 }

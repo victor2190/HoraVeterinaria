@@ -22,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="93dp"
         android:text="Agenda"
+        android:onClick="verAgenda"
 
         />
     <Button
