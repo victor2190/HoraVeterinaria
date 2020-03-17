@@ -67,6 +67,7 @@ public class NuevaCita extends AppCompatActivity {
         {
             Cita cita=new Cita(rNombre,rEspecie,edad,peso,rDueño,rTelefono,rFecha,hora);
             helper.ingresarCita(cita);
+            Toast.makeText(this, "Cita ingresada correctamente", Toast.LENGTH_SHORT).show();
             finish();
         }
 

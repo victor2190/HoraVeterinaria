@@ -7,6 +7,7 @@ import android.database.DatabaseErrorHandler;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -55,6 +56,8 @@ public class AgendaDatabaseHelper extends SQLiteOpenHelper {
         valores.put("ESTADO", cita.getEstado());
 
         db.insert("AGENDA", null, valores);
+
+
     }
 
     //mostrando registros
