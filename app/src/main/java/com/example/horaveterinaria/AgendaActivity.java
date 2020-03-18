@@ -13,12 +13,14 @@ import com.example.horaveterinaria.Modelo.Cita;
 import java.util.List;
 
 
-public class AgendaActivity extends ListActivity {
+public class AgendaActivity extends ListActivity
+{
 
     private ListView lista;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         cargarLista();
     }
@@ -30,10 +32,10 @@ public class AgendaActivity extends ListActivity {
         AgendaDatabaseHelper helper=new AgendaDatabaseHelper(this);
         List<Cita> citaList= helper.listaCitas();
 
-        ArrayAdapter<Cita> listaAdappter=new ArrayAdapter<Cita>
-                (this,android.R.layout.simple_list_item_1,citaList);
+        ArrayAdapter<Cita> listaAdapter=new ArrayAdapter<Cita>(this,
+                android.R.layout.simple_expandable_list_item_1,citaList);
 
-        lista.setAdapter(listaAdappter);
+        lista.setAdapter(listaAdapter);
     }
 
     @Override
